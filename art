@@ -2,7 +2,7 @@
 
 # Set DEFAULT_PROJECT to path of default Laravel
 # home folder, don't forget trailing slash
-DEFAULT_PROJECT="/home/chuck/gsd/ch54/"
+DEFAULT_PROJECT="/path/to/default/laravel/project/"
 
 # build list of directories to check
 PATHS=''
@@ -16,10 +16,10 @@ done;
 for P in $PATHS; do
 	CMD="${P}artisan"
 	if [ -e $CMD ]; then
-		php $CMD $*
+		php $CMD $@
 		exit
 	fi
 done;
 
 echo "* DEFAULT PROJECT *"
-php "${DEFAULT_PROJECT}artisan" $*
+php "${DEFAULT_PROJECT}artisan" $@
